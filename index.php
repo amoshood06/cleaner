@@ -104,7 +104,7 @@
                     </div>
                     <div>
                         <p class="text-sm text-gray-500">Call for appointment</p>
-                        <p class="text-primary font-bold">+00 912 456 789</p>
+                        <p class="text-primary font-bold">+21 263 994 4817</p>
                     </div>
                 </div>
             </div>
@@ -528,7 +528,7 @@
 
     <script>
         function redirectToWhatsAppSupport() {
-            window.open('https://wa.me/1234567890', '_blank');
+            window.open('https://wa.me/212639944817', '_blank');
         }
     </script>
         <style>

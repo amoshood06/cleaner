@@ -4,7 +4,8 @@
 session_start();
 
 // Database connection
-$conn = new mysqli('localhost', 'root', '', 'cleaner');
+$conn = new mysqli('sdb-o.hosting.stackcp.net', 'cleaner-313937c7c2', 'akk5hq2h61
+', 'cleaner-313937c7c2');
 
 // Check connection
 if ($conn->connect_error) {

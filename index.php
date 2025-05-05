@@ -48,6 +48,70 @@
             transform: rotate(45deg);
             z-index: -1;
         }
+
+        /* WhatsApp Floating Button Styles */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+        }
+        
+        .whatsapp-button {
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Bouncing Animation */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        /* Pulse Animation for additional attention */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+    
     </style>
     
 
@@ -528,7 +592,7 @@ function googleTranslateElementInit() {
         </div>
         
         <!-- Chat Button -->
-        <!-- Floating WhatsApp Button -->
+    <!-- Floating WhatsApp Button -->
     <div class="whatsapp-float">
         <div class="whatsapp-button bounce pulse" onclick="redirectToWhatsAppSupport()">
             <i class="fab fa-whatsapp"></i>
@@ -536,40 +600,31 @@ function googleTranslateElementInit() {
     </div>
 
     <script>
-        function redirectToWhatsAppSupport() {
-            window.open('https://wa.me/212639944817', '_blank');
+         // WhatsApp integration function for product inquiries
+         function redirectToWhatsApp(cylinderSize) {
+            // Replace with your actual WhatsApp number
+            const phoneNumber = "+2347018933739";
+            const message = `Hello, I'm interested in buying a ${cylinderSize} gas cylinder. Please provide more information.`;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
-    </script>
-        <style>
-            .whatsapp-float {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 1000;
-            }
-            .whatsapp-button {
-                background-color: #25D366;
-                border-radius: 50%;
-                width: 60px;
-                height: 60px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-                cursor: pointer;
-            }
-            .whatsapp-button i {
-                color: white;
-                font-size: 24px;
-            }
-        </style>
-        <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-        <script>
+        
+        // WhatsApp integration function for customer support
+        function redirectToWhatsAppSupport() {
+            // Replace with your actual WhatsApp support number (can be the same as above)
+            const phoneNumber = "+212639944817";
+            const message = "Hello, I need assistance with JumandiGas products/services.";
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Stop bouncing animation after 10 seconds to avoid annoying the user
+        setTimeout(() => {
             const whatsappButton = document.querySelector('.whatsapp-button');
-            whatsappButton.addEventListener('click', () => {
-                window.open('https://wa.me/212639944817', '_blank');
-            });
-        </script>
+            whatsappButton.classList.remove('bounce');
+            // Keep the pulse animation for subtle attention
+        }, 10000);
+    </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
